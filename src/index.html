@@ -2,14 +2,15 @@
 <html lang="en" ng-app="catsApp">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bg.css">
     <link rel="stylesheet" href="css/variables.css">
     <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <link rel="stylesheet" href="lib/angular-material/angular-material.css">
     <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
@@ -25,11 +26,23 @@
 </head>
 <body>
 <div class="container">
-<div class="row text-center">
-    <h1>Cat Picker</h1>
-</div>
+    <div class="row">
+        <div class="pull-right">
+            <md-button class="md-fab md-mini" ng-click="view='adding'">
+                <i class="fa fa-lg fa-plus"></i>
+            </md-button>
 
-<cats-list></cats-list>
+            <md-button class="md-fab md-mini" ng-click="view='list'">
+                <i class="fa fa-lg fa-bars"></i>
+            </md-button>
+        </div>
+    </div>
+    <div class="row text-center">
+        <h1>Cat Picker</h1>
+    </div>
+
+    <cats-list ng-show="view=='list'"></cats-list>
+    <cats-add ng-show="view=='adding'"></cats-add>
 
 </div>
 

@@ -28,7 +28,7 @@ const out = {
 };
 
 
-gulp.task('default', ['compile', 'scss', 'js', 'bower-files', 'ng-templates'], () => {
+gulp.task('default', ['compile', 'scss', 'js', 'ng-templates'], () => {
     browserSync.init({
         notify: false,
         server: {
