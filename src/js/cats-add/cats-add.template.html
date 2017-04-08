@@ -1,0 +1,13 @@
+<div class="row cats-row text-center">
+    <form method="post" action="http://localhost:7000/cats">
+        <tags-input ng-model=" $ctrl.selectedTags" min-length="0" style="color: dodgerblue"
+                    placeholder="What kind of cat are you looking for today?">
+            <auto-complete min-length="0" load-on-focus="true" load-on-empty="true"
+                           source="$ctrl.getTags($query)"></auto-complete>
+        </tags-input>
+        <label>
+            <input type="url">Url
+        </label>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>

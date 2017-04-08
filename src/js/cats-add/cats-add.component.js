@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('catsList').component('catsList', {
-    templateUrl: 'js/cats-list/cats-list.template.html',
-    controller: function CatsListController($http) {
+// Register `phoneList` component, along with its associated controller and template
+angular.module('catsAdd').component('catsAdd', {
+    templateUrl: 'js/cats-add/cats-add.template.html',
+    controller: function($http) {
         let vm = this;
         let tags = [];
 
@@ -26,13 +27,5 @@ angular.module('catsList').component('catsList', {
             return tags.filter((tag)=>tag.text.includes(query))
         };
         vm.selectedTags = [];
-        vm.filterCats = function (cat) {
-            if (vm.selectedTags.length === 0) return true;
-            for (let tag of cat.tags){
-                if(vm.selectedTags.some((element) => element.text === tag))
-                    return true
-            }
-            return false
-        }
     }
 });
