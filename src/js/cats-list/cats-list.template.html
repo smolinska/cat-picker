@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="row cats-row text-center">
+      <tags-input ng-model="$ctrl.selectedTags" min-length="0" style="color: purple">
+          <auto-complete min-length="0" load-on-focus="true" load-on-empty="true" source="$ctrl.getTags($query)"></auto-complete>
+      </tags-input>
+      <ul class="cats list-unstyled">
+        <li ng-repeat="cat in $ctrl.cats | filter:$ctrl.filterCats">
+          <div><img ng-src="{{cat.url}}"></div>
+          <span ng-repeat="tag in cat.tags">#{{tag}} </span>
+        </li>
+      </ul>
+  </div>
+</div>

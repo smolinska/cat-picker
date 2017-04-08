@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="catsApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,18 +7,34 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bg.css">
     <link rel="stylesheet" href="css/variables.css">
-    <link href='http://fonts.googleapis.com/css?family=Advent+Pro&subset=latin,latin-ext' rel='stylesheet'
-          type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.css">
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/ng-tags-input/ng-tags-input.js"></script>
+
+    <script src="js/app.module.js"></script>
+    <script src="js/cats-list/cats-list.module.js"></script>
+    <script src="js/cats-list/cats-list.component.js"></script>
     <title>Title</title>
+
 </head>
 <body>
-{% include 'templates/content.html' %}
+<div class="container">
+<div class="row text-center">
+    <h1>Cat Picker</h1>
+</div>
 
+<cats-list></cats-list>
+
+</div>
 
 <script src="lib/jquery/dist/jquery.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 
-
-<script src="js/main.js"></script>
 </body>
 </html>

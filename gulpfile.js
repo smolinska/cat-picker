@@ -15,18 +15,20 @@ function swallowError(error) {
 const src = {
     scss: 'src/css/**/*.scss',
     js: 'src/js/**/*.js',
+    angularTemplates: 'src/js/**/*.html',
     templates_all: ['src/templates/**/*', 'src/index.html'],
     templates_start: 'src/index.html',
 };
 const out = {
     scss: 'build/css',
     js: 'build/js',
+    angularTemplates: 'build/js/',
     templates: 'build',
     lib:'build/lib',
 };
 
 
-gulp.task('default', ['compile', 'scss', 'js', 'bower-files'], () => {
+gulp.task('default', ['compile', 'scss', 'js', 'bower-files', 'ng-templates'], () => {
     browserSync.init({
         notify: false,
         server: {
@@ -36,7 +38,7 @@ gulp.task('default', ['compile', 'scss', 'js', 'bower-files'], () => {
     gulp.watch(src.templates_all, ['templates']);
     gulp.watch(src.scss, ['scss']);
     gulp.watch(src.js, ['js-watch']);
-
+    gulp.watch(src.angularTemplates, ['ng-templates-watch']);
 });
 
 gulp.task('templates', ['compile'], function (done) {
@@ -66,6 +68,15 @@ gulp.task('js', () => {
             presets: ['es2015']
         }))
         .pipe(gulp.dest(out.js));
+});
+
+gulp.task('ng-templates-watch', ['ng-templates'], function (done) {
+    browserSync.reload();
+    done();
+});
+gulp.task('ng-templates', ()=> {
+    return gulp.src(src.angularTemplates)
+        .pipe(gulp.dest(out.angularTemplates))
 });
 
 gulp.task("bower-files", function(){
