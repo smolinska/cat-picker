@@ -28,6 +28,11 @@
 
 </head>
 <body>
+<div class="loader" ng-show="loading">
+    <div class="cat">
+        <img src="img/loader.gif">
+    </div>
+</div>
 <div class="container" ng-init="view='list'">
     <div class="row">
         <div class="pull-right">
@@ -47,14 +52,8 @@
     <cats-list ng-show="view=='list'"></cats-list>
     <cats-add ng-show="view=='adding'"></cats-add>
 
-    <div class="loader" ng-class="{faded:!loading}">
-        <div class="cat">
-            <img src="img/loader.gif">
-        </div>
-    </div>
-
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-
+</div>
 </body>
 </html>

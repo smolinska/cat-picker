@@ -1,4 +1,7 @@
 'use strict';
 
 // Define the `phoneList` module
-angular.module('catsList', ['ngTagsInput']);
+angular.module('catsList', [
+    'ngTagsInput',
+    'ngAnimate'
+]);

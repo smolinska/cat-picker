@@ -9,7 +9,7 @@ angular.module('catsAdd').component('catsAdd', {
 
 
         $http.get('http://localhost:7000/cats').then(function (res) {
-           vm.cats = res.data.cats
+           vm.cats = res.data.cats;
 
             for (let cat of vm.cats) {
                 for (let tag of cat.tags) {
@@ -26,15 +26,16 @@ angular.module('catsAdd').component('catsAdd', {
         vm.selectedTags = [];
 
         vm.sendCat = function (e) {
-            e.preventDefault()
-            let newCat = angular.copy(vm.form)
-            newCat.tags = newCat.selectedTags.map(tag => tag.text)
+            $rootScope.loading = true;
+            e.preventDefault();
+            let newCat = angular.copy(vm.form);
+            newCat.tags = newCat.selectedTags.map(tag => tag.text);
             $http.post('http://localhost:7000/cats', newCat).then(function (response) {
                 alert(response)
             },
             function (error) {
                 alert(error)
-            })
+            }).finally(()=>$rootScope.loading = false)
         }
     }
 });

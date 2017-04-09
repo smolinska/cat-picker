@@ -16,7 +16,8 @@
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
     "angular": "^1.6.4",
-    "ng-tags-input": "^3.1.2"
+    "ng-tags-input": "^3.1.2",
+    "angular-animate": "^1.6.4"
   },
   "overrides": {
     "bootstrap": {
