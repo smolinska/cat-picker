@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bg.css">
+    <link rel="stylesheet" href="css/spinner.css">
     <link rel="stylesheet" href="css/variables.css">
 
     <script src="lib/angular/angular.js"></script>
@@ -23,7 +24,7 @@
     <script src="js/cats-list/cats-list.component.js"></script>
     <script src="js/cats-add/cats-add.module.js"></script>
     <script src="js/cats-add/cats-add.component.js"></script>
-    <title>Title</title>
+    <title>Cat Picker</title>
 
 </head>
 <body>
@@ -46,8 +47,14 @@
     <cats-list ng-show="view=='list'"></cats-list>
     <cats-add ng-show="view=='adding'"></cats-add>
 
-<script src="lib/jquery/dist/jquery.js"></script>
-<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <div class="loader" ng-class="{faded:!loading}">
+        <div class="cat">
+            <img src="img/loader.gif">
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 
 </body>
 </html>

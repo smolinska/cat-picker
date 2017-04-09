@@ -5,7 +5,7 @@ const express = require('express'),
     bodyParser= require('body-parser');
 
 const app = express();
-const url = 'mongodb://localhost:27017/catsDb';
+const url = 'mongodb://localhost:27017/cats';
 app.use(cors());
 app.use(bodyParser.json())
 

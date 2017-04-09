@@ -27,7 +27,9 @@ angular.module('catsAdd').component('catsAdd', {
 
         vm.sendCat = function (e) {
             e.preventDefault()
-            $http.post('http://localhost:7000/cats', vm.form).then(function (response) {
+            let newCat = angular.copy(vm.form)
+            newCat.tags = newCat.selectedTags.map(tag => tag.text)
+            $http.post('http://localhost:7000/cats', newCat).then(function (response) {
                 alert(response)
             },
             function (error) {
