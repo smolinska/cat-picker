@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/bg.css">
-    <link rel="stylesheet" href="css/variables.css">
     <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <link rel="stylesheet" href="lib/angular-material/angular-material.css">
     <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.css">
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bg.css">
+    <link rel="stylesheet" href="css/variables.css">
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
@@ -27,7 +27,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container" ng-init="view='list'">
     <div class="row">
         <div class="pull-right">
             <md-button class="md-fab md-mini" ng-click="view='adding'">
@@ -45,8 +45,6 @@
 
     <cats-list ng-show="view=='list'"></cats-list>
     <cats-add ng-show="view=='adding'"></cats-add>
-
-</div>
 
 <script src="lib/jquery/dist/jquery.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.js"></script>

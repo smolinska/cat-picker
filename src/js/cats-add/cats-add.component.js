@@ -8,10 +8,7 @@ angular.module('catsAdd').component('catsAdd', {
         let tags = [];
 
 
-        $http({
-            method: 'GET',
-            url: 'http://localhost:7000/cats'
-        }).then(function (res) {
+        $http.get('http://localhost:7000/cats').then(function (res) {
            vm.cats = res.data.cats
 
             for (let cat of vm.cats) {
@@ -27,5 +24,15 @@ angular.module('catsAdd').component('catsAdd', {
             return tags.filter((tag)=>tag.text.includes(query))
         };
         vm.selectedTags = [];
+
+        vm.sendCat = function (e) {
+            e.preventDefault()
+            $http.post('http://localhost:7000/cats', vm.form).then(function (response) {
+                alert(response)
+            },
+            function (error) {
+                alert(error)
+            })
+        }
     }
 });

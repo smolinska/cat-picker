@@ -35,4 +35,4 @@ angular.module('catsList').component('catsList', {
             return false
         }
     }
-});
+})
