@@ -30,8 +30,8 @@ def build():
         run('yarn install')
         run('bower install')
         run('gulp build')
-        run('ln -s src/lib {}/lib --force'.format(env.dist_dir))
-        run('ln -s src/img {}/img --force'.format(env.dist_dir))
+        run('cp src/lib {}/lib -r'.format(env.dist_dir))
+        run('cp src/img {}/img -r'.format(env.dist_dir))
         sudo('chgrp www-data -R ./' + env.dist_dir)
 
 @task
