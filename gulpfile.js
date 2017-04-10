@@ -41,6 +41,9 @@ gulp.task('default', ['compile', 'scss', 'js', 'ng-templates'], () => {
     gulp.watch(src.angularTemplates, ['ng-templates-watch']);
 });
 
+//TODO add uglify, pick only used files, optimize images etc.
+gulp.task('build', ['compile', 'scss', 'js', 'ng-templates']);
+
 gulp.task('templates', ['compile'], function (done) {
     browserSync.reload();
     done();
