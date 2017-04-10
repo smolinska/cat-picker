@@ -8,7 +8,7 @@ angular.module('catsList').component('catsList', {
 
 
         $rootScope.loading = true;
-        let catsPromise = $http.get('http://localhost:7000/cats').then(function (res) {
+        let catsPromise = $http.get('https://alpakara.pl/smolinska/backend-cat/cats').then(function (res) {
            vm.cats = res.data.cats;
             for (let cat of vm.cats) {
                 for (let tag of cat.tags) {

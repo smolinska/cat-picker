@@ -14,7 +14,6 @@ MongoClient.connect(url, function (err, db) {
     assert.equal(null, err);
     console.log("Connected successfully to db");
 
-
     app.get('/cats', function (req, res) {
         db.collection('cats').find({}).toArray(function (err, results) {
             assert.equal(err, null);

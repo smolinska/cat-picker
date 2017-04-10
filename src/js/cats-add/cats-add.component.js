@@ -7,7 +7,7 @@ angular.module('catsAdd').component('catsAdd', {
         let tags = [];
         vm.postSuccess = undefined;
 
-        $http.get('http://localhost:7000/cats').then(function (res) {
+        $http.get('https://alpakara.pl/smolinska/backend-cat/cats').then(function (res) {
            vm.cats = res.data.cats;
 
             for (let cat of vm.cats) {
