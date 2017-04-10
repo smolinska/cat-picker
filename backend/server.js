@@ -23,10 +23,14 @@ MongoClient.connect(url, function (err, db) {
     });
 
     app.post('/cats', function (req, res) {
+        if (!req.body.url || !req.body.tags){
+            res.status(400).send('Tags or url is not valid!');
+            return
+        }
         db.collection('cats').insert(req.body, function(err, result) {
             assert.equal(err, null);
+            res.json("Ok!")
         });
-        res.json("Ok!")
     });
     app.listen(7000);
 });

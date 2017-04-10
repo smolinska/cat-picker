@@ -1,12 +1,11 @@
 'use strict';
 
-// Register `phoneList` component, along with its associated controller and template
 angular.module('catsAdd').component('catsAdd', {
     templateUrl: 'js/cats-add/cats-add.template.html',
-    controller: function($http) {
+    controller: function($http, $rootScope) {
         let vm = this;
         let tags = [];
-
+        vm.postSuccess = undefined;
 
         $http.get('http://localhost:7000/cats').then(function (res) {
            vm.cats = res.data.cats;
@@ -26,15 +25,17 @@ angular.module('catsAdd').component('catsAdd', {
         vm.selectedTags = [];
 
         vm.sendCat = function (e) {
-            $rootScope.loading = true;
             e.preventDefault();
+            $rootScope.loading = true;
             let newCat = angular.copy(vm.form);
             newCat.tags = newCat.selectedTags.map(tag => tag.text);
             $http.post('http://localhost:7000/cats', newCat).then(function (response) {
-                alert(response)
+                alert(response.data);
+                vm.postSuccess = true
             },
             function (error) {
-                alert(error)
+                alert(error.data);
+                vm.postSuccess = false
             }).finally(()=>$rootScope.loading = false)
         }
     }

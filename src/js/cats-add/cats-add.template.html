@@ -1,6 +1,6 @@
 <div class="row cats-row text-center">
     <form method="post" action="http://localhost:7000/cats" ng-submit="$ctrl.sendCat($event)">
-        <tags-input ng-model=" $ctrl.form.selectedTags" min-length="0"
+        <tags-input class="search-bar" ng-model=" $ctrl.form.selectedTags" min-length="0"
                     placeholder="What kind of cat are you looking for today?">
             <auto-complete min-length="0" load-on-focus="true" load-on-empty="true"
                            source="$ctrl.getTags($query)"></auto-complete>
@@ -9,5 +9,7 @@
             <input type="url" placeholder="url" ng-model="$ctrl.form.url">
         </label>
         <button class="btn btn-primary" type="submit">Submit</button>
+        <i class="fa fa-lg fa-check" ng-show="$ctrl.postSuccess===true"></i>
+        <i class="fa fa-lg fa-close" ng-show="$ctrl.postSuccess===false"></i>
     </form>
 </div>

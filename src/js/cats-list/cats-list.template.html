@@ -1,13 +1,11 @@
 <div class="row cats-row text-center">
-    <tags-input ng-model="$ctrl.selectedTags" min-length="0"
+    <tags-input class="search-bar" ng-model="$ctrl.selectedTags" min-length="0"
                 placeholder="What kind of cat are you looking for today?">
         <auto-complete min-length="0" load-on-focus="true" load-on-empty="true"
                        source="$ctrl.getTags($query)"></auto-complete>
     </tags-input>
-    <ul class="cats list-unstyled">
-        <li class="col-md-6" ng-repeat="cat in $ctrl.cats | filter:$ctrl.filterCats">
-            <div class="cat-photo" ng-style="{'background-image': 'url('+cat.url+')'}"></div>
-            <a class="btn btn-default" ng-repeat="tag in cat.tags" ng-click="$ctrl.selectedTags=[tag]">#{{tag}} </a>
-        </li>
-    </ul>
+    <div class="col-md-6 single-cat" ng-repeat="cat in $ctrl.cats | filter:$ctrl.filterCats">
+        <div class="cat-photo center-block" ng-style="{'background-image': 'url('+cat.url+')'}"></div>
+        <a class="btn btn-default" ng-repeat="tag in cat.tags" ng-click="$ctrl.selectedTags=[tag]">#{{tag}} </a>
+    </div>
 </div>

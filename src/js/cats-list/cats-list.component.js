@@ -2,7 +2,7 @@
 
 angular.module('catsList').component('catsList', {
     templateUrl: 'js/cats-list/cats-list.template.html',
-    controller: function CatsListController($http, $window, $rootScope) {
+    controller: function CatsListController($http, $q, $window, $rootScope) {
         let vm = this;
         let tags = [];
 
@@ -17,13 +17,10 @@ angular.module('catsList').component('catsList', {
                     }
                 }
             }
-
         });
-        $window.onload = function () {
-            catsPromise.then(function () {
-                $rootScope.loading = false;
-            })
-        };
+
+        $q.all([catsPromise, $rootScope.windowLoaded]).then(()=> $rootScope.loading = false);
+
 
         vm.getTags = function (query) {
             return tags.filter((tag)=>tag.text.includes(query))

@@ -18,6 +18,7 @@
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
     <script src="lib/ng-tags-input/ng-tags-input.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="js/app.module.js"></script>
     <script src="js/cats-list/cats-list.module.js"></script>
@@ -33,14 +34,14 @@
         <img src="img/loader.gif">
     </div>
 </div>
-<div class="container" ng-init="view='list'">
+<div class="container">
     <div class="row">
         <div class="pull-right">
-            <md-button class="md-fab md-mini" ng-click="view='adding'">
+            <md-button class="md-fab md-mini" ui-sref="cat-add">
                 <i class="fa fa-lg fa-plus"></i>
             </md-button>
 
-            <md-button class="md-fab md-mini" ng-click="view='list'">
+            <md-button class="md-fab md-mini" ui-sref="cat-picker">
                 <i class="fa fa-lg fa-bars"></i>
             </md-button>
         </div>
@@ -49,8 +50,7 @@
         <h1>Cat Picker</h1>
     </div>
 
-    <cats-list ng-show="view=='list'"></cats-list>
-    <cats-add ng-show="view=='adding'"></cats-add>
+    <ui-view></ui-view>
 
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
